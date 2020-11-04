@@ -1,7 +1,7 @@
 package com.lambdaschool.javaorders.services;
 
-import com.lambdaschool.javaorders.models.Payments;
+import com.lambdaschool.javaorders.models.Payment;
 
 public interface PaymentService {
-    public Payments save(Payments payment)
+    public Payment save(Payment payment);
 }

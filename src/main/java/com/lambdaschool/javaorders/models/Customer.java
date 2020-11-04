@@ -5,11 +5,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name = "Customers")
-public class Customers {
+@Table(name = "customers")
+public class Customer{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long custcode;
+    private long custcode;
     @Column(nullable = false)
     private String custname;
     private String custcity;
@@ -23,9 +23,28 @@ public class Customers {
     private String phone;
     @ManyToOne
     @JoinColumn(name = "agentcode", nullable = false)
-    Agents agents;
-    @OneToMany(mappedBy = "custcode", cascade = CascadeType.ALL, orphanRemoval = true)
-    List<Orders> orders = new ArrayList<>();
+    private Agent agent;
+    @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Order> orders = new ArrayList<>();
+
+    public Customer(String custname, String custcity, String workingarea, String custcountry, String grade, double openingamt, double reciveamt, double paymentamt, double outstandingamt, String phone, Agent agent) {
+        this.custname = custname;
+        this.custcity = custcity;
+        this.workingarea = workingarea;
+        this.custcountry = custcountry;
+        this.grade = grade;
+        this.openingamt = openingamt;
+        this.reciveamt = reciveamt;
+        this.paymentamt = paymentamt;
+        this.outstandingamt = outstandingamt;
+        this.phone = phone;
+        this.agent = agent;
+    }
+
+    public Customer(){
+
+    }
+
     public Long getCustcode() {
         return custcode;
     }

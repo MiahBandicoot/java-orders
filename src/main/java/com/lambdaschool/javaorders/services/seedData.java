@@ -1,10 +1,10 @@
 package com.lambdaschool.javaorders.services;
 
-import com.github.javafaker.Faker;
-import com.lambdaschool.javaorders.models.Agents;
-import com.lambdaschool.javaorders.models.Customers;
-import com.lambdaschool.javaorders.models.Orders;
-import com.lambdaschool.javaorders.models.Payments;
+
+import com.lambdaschool.javaorders.models.Agent;
+import com.lambdaschool.javaorders.models.Customer;
+import com.lambdaschool.javaorders.models.Order;
+import com.lambdaschool.javaorders.models.Payment;
 import com.lambdaschool.javaorders.repositories.AgentsRepository;
 import com.lambdaschool.javaorders.repositories.CustomersRepository;
 import com.lambdaschool.javaorders.repositories.OrdersRepository;

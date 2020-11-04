@@ -2,10 +2,11 @@ package com.lambdaschool.javaorders.models;
 
 import javax.persistence.*;
 import java.util.HashSet;
+import java.util.Set;
 
 @Entity
-@Table(name = "Orders")
-public class Orders {
+@Table(name = "orders")
+public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long ordnum;
@@ -14,22 +15,24 @@ public class Orders {
     private String orderdescription;
     @ManyToOne
     @JoinColumn(name = "custcode", nullable = false)
-    Customers custcode;
+    private Customer customer;
     @ManyToMany()
-    @JoinTable(name = "OrdersPayments",
+    @JoinTable(name = "ordersPayments",
     joinColumns = @JoinColumn(name = "ordnum"),
     inverseJoinColumns = @JoinColumn(name = "paymentid"))
-    private Set<Payments> payments = new HashSet<>();
-    public Long getOrdnum() {
-        return ordnum;
-    }
+    Set<Payment> payments = new HashSet<>();
+//    public Long getOrdnum() {
+//        return ordnum;
+//    }
 
-    public Orders(Long ordnum, double ordamount, double advanceamount, String orderdescription, Customers custcode) {
-        this.ordnum = ordnum;
+    public Order(double ordamount, double advanceamount, String orderdescription, Customer customer) {
         this.ordamount = ordamount;
         this.advanceamount = advanceamount;
         this.orderdescription = orderdescription;
-        this.custcode = custcode;
+        this.customer = customer;
+    }
+
+    public Order() {
     }
 
     public double getOrdamount() {

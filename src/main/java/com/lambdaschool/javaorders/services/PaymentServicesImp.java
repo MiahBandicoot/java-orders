@@ -1,6 +1,6 @@
 package com.lambdaschool.javaorders.services;
 
-import com.lambdaschool.javaorders.models.Payments;
+import com.lambdaschool.javaorders.models.Payment;
 import com.lambdaschool.javaorders.repositories.PaymentsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,8 +13,8 @@ public class PaymentServicesImp implements PaymentService{
     PaymentsRepository PaymentsRepo;
     @Transactional
     @Override
-    public Payments save(Payments payments){
-        return PaymentsRepo.save(payments);
+    public Payment save(Payment payment){
+        return PaymentsRepo.save(payment);
     }
 
 

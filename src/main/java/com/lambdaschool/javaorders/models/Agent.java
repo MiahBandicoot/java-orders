@@ -6,8 +6,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name = "agents")
-public class Agents {
+@Table(name = "agent")
+public class Agent {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long agentcode;
@@ -20,7 +20,7 @@ public class Agents {
     @OneToMany(mappedBy = "agentcode",
     cascade = CascadeType.ALL,
     orphanRemoval = true)
-    List<Customers> custs = new ArrayList<>();
+    List<Customer> custs = new ArrayList<>();
 
 
     public Long getAgentcode() {
